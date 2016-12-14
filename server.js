@@ -8,9 +8,10 @@ console.log('myService: ', myService);
 
 
 app.get('/', (req, res) => {
-  axios.get(myService.url).then( (serviceRes) => {
-    res.json(serviceRes.body);
-  });
+  // axios.get(myService.url).then( (serviceRes) => {
+  //   res.json(serviceRes.body);
+  // });
+  res.end("hello worl");
 });
 
 const server = app.listen(8080, function() {
