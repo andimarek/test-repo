@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
-    "test": "babel-node server.js"
+    "start": "babel-node server.js"
   },
   "dependencies": {
     "axios": "^0.15.3",
