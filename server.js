@@ -1,10 +1,18 @@
-var http = require('http');
+var express = require('express');
+var app = express();
+import axios from 'axios';
 
-var server = http.createServer(function (request, response) {
-  response.writeHead(200, {"Content-Type": "text/plain"});
-  response.end("Hello World");
+const otherServiceLocations  = process.env.otherServices || {};
+const myService = otherServiceLocations['myService'];
+console.log('myService: ', myService);
+
+
+app.get('/', (req, res) => {
+  axios.get(myService.url).then( (serviceRes) => {
+    res.json(serviceRes.body);
+  });
 });
 
-server.listen(8080);
-
-console.log("Server running at http://127.0.0.1:8000/");
+const server = app.listen(8080, function() {
+  console.log('server started');
+});
