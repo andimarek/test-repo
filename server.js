@@ -10,7 +10,8 @@ console.log('service url: ' + serviceUrl);
 
 
 app.get('/', (req, res) => {
-  axios.get(serviceUrl+'').then( (serviceRes) => {
+  axios.get(serviceUrl+'/hello').then( (serviceRes) => {
+    console.log('received response ', serviceRes);
     res.json(serviceRes.data);
   });
 });
