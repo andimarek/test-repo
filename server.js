@@ -13,7 +13,6 @@ app.get('/', (req, res) => {
   axios.get(serviceUrl).then( (serviceRes) => {
     res.json(serviceRes.body);
   });
-  res.end("hello worl");
 });
 
 const server = app.listen(8080, function() {
