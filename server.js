@@ -5,7 +5,7 @@ import axios from 'axios';
 const config = require('./config.json');
 console.log('config: ', config);
 const {myService} = config;
-const serviceUrl = 'http://' + myService.ip + ':8090';
+const serviceUrl = 'http://' + myService + ':8090';
 console.log('service url: ' + serviceUrl);
 
 
