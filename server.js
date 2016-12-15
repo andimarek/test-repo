@@ -1,16 +1,18 @@
-var express = require('express');
-var app = express();
+const express = require('express');
+const app = express();
 import axios from 'axios';
 
-const otherServiceLocations  = process.env.otherServices || {};
-const myService = otherServiceLocations['myService'];
-console.log('myService: ', myService);
+const config = require('./config.json');
+console.log('config: ', config);
+const {myService} = config;
+const serviceUrl = 'http://' + myService.ip + ':8090';
+console.log('service url: ' + serviceUrl);
 
 
 app.get('/', (req, res) => {
-  // axios.get(myService.url).then( (serviceRes) => {
-  //   res.json(serviceRes.body);
-  // });
+  axios.get(serviceUrl).then( (serviceRes) => {
+    res.json(serviceRes.body);
+  });
   res.end("hello worl");
 });
 
